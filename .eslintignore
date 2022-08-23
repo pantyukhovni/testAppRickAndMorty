@@ -1,0 +1,11 @@
+# folders
+node_modules/
+scripts/
+
+# files
+babel.config.js
+metro.config.js
+react-native.config.js
+/scripts
+
+*.js

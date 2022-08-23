@@ -1,0 +1,178 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx", ".native.js"]
+      }
+    }
+  },
+  "extends": [
+    // "eslint-config-airbnb/rules/react",
+    // "eslint-config-airbnb/rules/react-a11y",
+    "eslint-config-airbnb/hooks"
+  ],
+  "plugins": [
+    "eslint-plugin-no-inline-styles",
+    "@typescript-eslint",
+    "prettier",
+    "import",
+    "react-hooks",
+    "react"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "./",
+    "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/await-thenable": ["error"],
+    "@typescript-eslint/no-extraneous-class": "error",
+    "@typescript-eslint/no-misused-new": "error",
+    "@typescript-eslint/no-unused-expressions": "error",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-redeclare": "off",
+    "@typescript-eslint/no-redeclare": ["error"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/destructuring-assignment": "warn",
+    "import/no-default-export": "error",
+    "import/no-anonymous-default-export": "error",
+    "import/prefer-default-export": "off", // default imports is evil
+    "import/default": "error", // enable default import validation
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Prefer named exports"
+      }
+    ],
+    "import/no-extraneous-dependencies": "off", // need fine tuning
+
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@app/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["@app/**"]
+      }
+    ],
+    "consistent-return": "warn",
+    "no-useless-escape": "warn",
+    "no-nested-ternary": "warn",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["acc", "state", "prevState", " res"]
+      }
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "require-await": "error",
+    "comma-dangle": ["error", "always-multiline"],
+    "no-console": "warn",
+    "import/no-duplicates": "error",
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "String": { "message": "Use string instead", "fixWith": "string" },
+          "Boolean": { "message": "Use boolean instead", "fixWith": "boolean" },
+          "Number": { "message": "Use number instead", "fixWith": "number" },
+          "Object": {
+            "message": "Use Record<string, unknown> instead",
+            "fixWith": "Record<string, unknown>"
+          },
+          "object": {
+            "message": "Use Record<string, unknown> instead",
+            "fixWith": "Record<string, unknown>"
+          },
+          "any": {
+            "message": "Use unknown instead",
+            "fixWith": " unknown"
+          }
+        },
+        "extendDefaults": false
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports",
+        "disallowTypeAnnotations": false
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "default",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "enumMember",
+        "format": ["UPPER_CASE", "snake_case"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+        "leadingUnderscore": "allow",
+        "trailingUnderscore": "allow"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "property",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE", "snake_case"],
+        "leadingUnderscore": "allow"
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": "off",
+    "no-inline-styles/no-inline-styles": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "no-inline-styles": false
+      }
+    ]
+  }
+}
