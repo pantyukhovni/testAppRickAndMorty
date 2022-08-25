@@ -9,20 +9,20 @@ import type {
 import type { ThunkMiddlewareFor } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
 import type { PersistPartial } from 'redux-persist/lib/persistReducer';
 
-import type { exampleServices } from '@app/services/example';
+import type { charactersServices } from '@app/services/characters';
 
-import type { ListState } from '../example/types';
+import type { CharactersState } from '../character/types';
 
 type PayloadAction<T> = ReduxPayloadAction<T>;
 
 type SliceReducer<T> = SliceCaseReducers<T>;
 
 type Dependencies = {
-  exampleServices: typeof exampleServices;
+  charactersServices: typeof charactersServices;
 };
 
 type RootState = {
-  list: ListState;
+  characters: CharactersState;
 } & PersistPartial;
 
 type AppDispatch = Dispatch & ThunkDispatch<RootState, Dependencies, AnyAction>;
@@ -52,11 +52,6 @@ type MainState = Omit<RootState, '_persist'>;
 
 type Reducers = { [K in keyof MainState]: Reducer<MainState[K], AnyAction> };
 
-enum SlicesName {
-  LIST = 'LIST',
-}
-
-export { SlicesName };
 export type {
   ThunkAsyncConfig,
   SliceReducer,
