@@ -1,3 +1,0 @@
-const getSomeData = () => {};
-
-export { getSomeData };

@@ -5,7 +5,7 @@ import Config from 'react-native-config';
 import { persistStore } from 'redux-persist';
 import persistReducer from 'redux-persist/es/persistReducer';
 
-import { exampleServices } from '@app/services/example';
+import { charactersServices } from '@app/services/characters';
 import type {
   Dependencies,
   Middlewares,
@@ -13,23 +13,22 @@ import type {
   RootState,
 } from '@app/store/types';
 
-import { listReducer } from './example/slice';
+import { charactersReducer } from './character/slice';
 
 const devTools = Config.API_URL === '';
 
 const dependencies: Dependencies = {
-  exampleServices,
+  charactersServices,
 };
 
 const reducers: Reducers = {
-  list: listReducer,
+  characters: charactersReducer,
 };
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  blackList: [],
-  whitelist: [],
+  blackList: ['characters'],
 };
 
 const rootReducer = combineReducers(reducers);
